@@ -1,11 +1,14 @@
 package com.springcourse.cruddemo.dao;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.springcourse.cruddemo.entity.Student;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 
 @Repository // This annotation is used to indicate that the class is a Data Access Object
             // (DAO). It's a specialization of the @Component annotation, indicating that
@@ -34,5 +37,13 @@ public class StudentDAOImpl implements StudentDAO {
         return entityManager.find(Student.class, id);
     }
 
+    @Override
+    public List<Student> findAll() {
+        // create query
+        TypedQuery<Student> theQuery = entityManager.createQuery("FROM Student", Student.class);
+        // return query results
+
+        return theQuery.getResultList();
+    }
 
 }
