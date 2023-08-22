@@ -16,7 +16,7 @@ import jakarta.persistence.TypedQuery;
 public class StudentDAOImpl implements StudentDAO {
 
     // define field for entity manager
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
     // inject entity manager using constructor injection
     public StudentDAOImpl(EntityManager entityManager) {
@@ -40,8 +40,19 @@ public class StudentDAOImpl implements StudentDAO {
     @Override
     public List<Student> findAll() {
         // create query
-        TypedQuery<Student> theQuery = entityManager.createQuery("FROM Student", Student.class);
+        TypedQuery<Student> theQuery = entityManager.createQuery("FROM Student ", Student.class);
         // return query results
+
+        return theQuery.getResultList();
+    }
+
+    @Override
+    public List<Student> findByLastName(String theLastName) {
+//        create query
+TypedQuery<Student> theQuery = entityManager.createQuery("FROM Student  where lastName=:theData",Student.class);
+//        set query parameters
+        theQuery.setParameter("theData",theLastName);
+//        return query results
 
         return theQuery.getResultList();
     }
