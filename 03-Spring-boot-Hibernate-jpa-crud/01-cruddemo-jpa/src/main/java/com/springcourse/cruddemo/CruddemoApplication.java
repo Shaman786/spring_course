@@ -20,14 +20,45 @@ public class CruddemoApplication {
     @Bean
     public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
         return runner -> {
-            // createStudent(studentDAO);
-            // createMultipleStudents(studentDAO);
-            // readStudent(studentDAO);
-            queryForStudentsByLastName(studentDAO);
-//			queryForStudents(studentDAO);
-
+//              createStudent(studentDAO);
+//              createMultipleStudents(studentDAO);
+//              readStudent(studentDAO);
+//              queryForStudentsByLastName(studentDAO);
+//			    queryForStudents(studentDAO);
+//              updateStudent(studentDAO);
+//              deleteStudent(studentDAO);
+            deleteAllStudents(studentDAO);
         };
 
+    }
+
+    private void deleteAllStudents(StudentDAO studentDAO) {
+        System.out.println("Deleting All Students");
+        int numRowsDeleted = studentDAO.deleteAll();
+        System.out.println("Deleted row count" + numRowsDeleted);
+    }
+
+    private void deleteStudent(StudentDAO studentDAO) {
+        int studentId = 3;
+        System.out.println("Deleting student id: " + studentId);
+        studentDAO.delete(studentId);
+    }
+
+    private void updateStudent(StudentDAO studentDAO) {
+//        retrieve student based on the id: primary key
+        int studentId = 1;
+        System.out.println("Getting student with id: " + studentId);
+        Student myStudent = studentDAO.findBYId(studentId);
+
+//        change first name to Scooby
+        System.out.println("Updating student ...");
+        myStudent.setFirstName("Scooby");
+
+//        update the student
+
+        studentDAO.update(myStudent);
+//        display the updated student
+        System.out.println("Updated student " + myStudent);
     }
 
     private void queryForStudentsByLastName(StudentDAO studentDAO) {

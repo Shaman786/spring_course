@@ -4,6 +4,7 @@ package com.springcourse.cruddemo.dao;
 import java.util.List;
 
 import com.springcourse.cruddemo.entity.Student;
+import org.springframework.transaction.annotation.Transactional;
 
 public interface StudentDAO {
     void save(Student theStudent);
@@ -14,6 +15,11 @@ public interface StudentDAO {
 
     List<Student> findByLastName(String theLastName);
 
-    void update(student theStudent);
+    void update(Student theStudent);
+
+    void delete (Integer id);
+
+    int deleteAll();
+
 
 }
