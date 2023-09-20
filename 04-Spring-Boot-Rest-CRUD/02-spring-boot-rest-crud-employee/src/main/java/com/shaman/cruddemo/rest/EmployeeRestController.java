@@ -1,8 +1,7 @@
-package com.shaman.curddemo.rest;
+package com.shaman.cruddemo.rest;
 
-import com.shaman.curddemo.entity.Employee;
-import com.shaman.curddemo.service.EmployeeService;
-import jakarta.annotation.PostConstruct;
+import com.shaman.cruddemo.entity.Employee;
+import com.shaman.cruddemo.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

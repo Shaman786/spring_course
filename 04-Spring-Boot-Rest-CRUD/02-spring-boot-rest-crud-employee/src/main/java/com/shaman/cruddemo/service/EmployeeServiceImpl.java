@@ -1,7 +1,7 @@
-package com.shaman.curddemo.service;
+package com.shaman.cruddemo.service;
 
-import com.shaman.curddemo.DAO.EmployeeDAO;
-import com.shaman.curddemo.entity.Employee;
+import com.shaman.cruddemo.DAO.EmployeeDAO;
+import com.shaman.cruddemo.entity.Employee;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

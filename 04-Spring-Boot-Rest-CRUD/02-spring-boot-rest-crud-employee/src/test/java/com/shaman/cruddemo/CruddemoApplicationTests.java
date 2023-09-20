@@ -1,4 +1,4 @@
-package com.shaman.curddemo;
+package com.shaman.cruddemo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

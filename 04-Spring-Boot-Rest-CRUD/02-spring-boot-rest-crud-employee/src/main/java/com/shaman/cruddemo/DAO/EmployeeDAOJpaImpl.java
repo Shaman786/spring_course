@@ -1,6 +1,6 @@
-package com.shaman.curddemo.DAO;
+package com.shaman.cruddemo.DAO;
 
-import com.shaman.curddemo.entity.Employee;
+import com.shaman.cruddemo.entity.Employee;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;

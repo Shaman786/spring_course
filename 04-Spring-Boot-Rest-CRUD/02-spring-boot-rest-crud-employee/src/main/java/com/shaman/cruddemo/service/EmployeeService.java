@@ -1,6 +1,6 @@
-package com.shaman.curddemo.service;
+package com.shaman.cruddemo.service;
 
-import com.shaman.curddemo.entity.Employee;
+import com.shaman.cruddemo.entity.Employee;
 
 import java.util.List;
 

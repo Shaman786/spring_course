@@ -1,4 +1,4 @@
-package com.shaman.curddemo.entity;
+package com.shaman.cruddemo.entity;
 
 import jakarta.persistence.*;
 
