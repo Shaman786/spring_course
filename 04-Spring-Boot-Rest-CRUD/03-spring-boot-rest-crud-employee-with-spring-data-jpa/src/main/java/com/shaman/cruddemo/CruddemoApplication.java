@@ -1,4 +1,4 @@
-package com.shaman.curddemo;
+package com.shaman.cruddemo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
