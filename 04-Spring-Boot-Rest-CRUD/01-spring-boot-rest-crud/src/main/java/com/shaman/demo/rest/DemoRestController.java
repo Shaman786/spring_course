@@ -13,4 +13,8 @@ public class DemoRestController{
     public String sayHello(){
         return "Hello World!";
     }
+    @GetMapping("/login")
+    public  String login(){
+        return "You are logged in!";
+    }
 }
