@@ -1,9 +1,9 @@
-package com.luv2code.springboo.thymeleafdemo.service;
+package com.luv2code.springboot.thymeleafdemo.service;
 
-import com.luv2code.springboo.thymeleafdemo.dao.EmployeeRepository;
-import com.luv2code.springboo.thymeleafdemo.entity.Employee;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.luv2code.springboot.thymeleafdemo.dao.EmployeeRepository;
+import com.luv2code.springboot.thymeleafdemo.entity.Employee;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,16 +11,15 @@ import java.util.Optional;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-    private EmployeeRepository employeeRepository;
+    private final EmployeeRepository employeeRepository;
 
-    @Autowired
     public EmployeeServiceImpl(EmployeeRepository theEmployeeRepository) {
         employeeRepository = theEmployeeRepository;
     }
 
     @Override
     public List<Employee> findAll() {
-        return employeeRepository.findAll();
+        return employeeRepository.findAllByOrderByLastNameAsc();
     }
 
     @Override
@@ -31,8 +30,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         if (result.isPresent()) {
             theEmployee = result.get();
-        }
-        else {
+        } else {
             // we didn't find the employee
             throw new RuntimeException("Did not find employee id - " + theId);
         }
@@ -50,9 +48,3 @@ public class EmployeeServiceImpl implements EmployeeService {
         employeeRepository.deleteById(theId);
     }
 }
-
-
-
-
-
-
